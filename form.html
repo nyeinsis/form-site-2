@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Planning & Procurement Service Request Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f7f7f7;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    #form-container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .section-title {
+      background-color: #2c3e50;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 18px;
+      margin: 25px 0 15px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .checkbox-group, .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .checkbox-group label,
+    .radio-group label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 5px;
+      white-space: nowrap;
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      margin: 0;
+    }
+    .submit-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 30px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+    .procurement-section {
+      margin-bottom: 30px;
+    }
+    .procurement-section strong {
+      display: block;
+      margin: 20px 0 10px;
+      font-size: 18px;
+      color: #2c3e50;
+      border-bottom: 2px solid #2c3e50;
+      padding-bottom: 5px;
+    }
+    .required:after {
+      content: " *";
+      color: red;
+    }
+    .other-specify {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .other-specify input[type="text"] {
+      width: auto;
+      flex-grow: 1;
+      min-width: 150px;
+    }
+    @media (max-width: 768px) {
+      body {
+        margin: 15px;
+      }
+      .checkbox-group, .radio-group {
+        gap: 10px;
+      }
+      .checkbox-group label, 
+      .radio-group label {
+        white-space: normal;
+      }
+    }
+    #success-message {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      margin: 0 auto;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #success-message p {
+      font-size: 24px;
+      color: #155724;
+      background-color: #d4edda;
+      padding: 20px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .hidden {
+      display: none !important;
+    }
+    #success-icon {
+      font-size: 60px;
+      color: #28a745;
+      margin-bottom: 20px;
+    }
+    #back-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 30px;
+      background-color: #6c757d;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #back-btn:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+
+<div id="success-message" class="hidden">
+  <div id="success-icon">✓</div>
+  <p>Your request has been submitted successfully!</p>
+  <p>We will review your submission and get back to you shortly.</p>
+  <button id="back-btn" onclick="window.location.reload()">Submit Another Request</button>
+</div>
+
+<div id="form-container">
+  <h1>Event Planning & Procurement Service Request Form</h1>
+  <form id="event-form" method="POST" action="https://script.google.com/macros/s/AKfycbw4SZ3q5-gfDwhZCwXncbIJ96SS3_3tR4Hctxgz509eZhrGL7EnUjVk_Mi_bpOh3zbF/exec">
+
+    <!-- Section 1: Event Overview -->
+    <div class="section-title">1. Event Overview</div>
+    
+    <label for="event_owner" class="required">Event Owner</label>
+    <input type="text" id="event_owner" name="event_owner" required />
+    
+    <label for="event_title" class="required">Event Title</label>
+    <input type="text" id="event_title" name="event_title" required />
+    
+    <label class="required">Type of Event</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="event_type[]" value="Conference" /> Conference</label>
+      <label><input type="checkbox" name="event_type[]" value="Seminar" /> Seminar</label>
+      <label><input type="checkbox" name="event_type[]" value="Product Launch" /> Product Launch</label>
+      <label><input type="checkbox" name="event_type[]" value="Workshop" /> Workshop</label>
+      <label><input type="checkbox" name="event_type[]" value="Gala Event" /> Gala Event</label>
+      <label><input type="checkbox" name="event_type[]" value="Overseas Trip" /> Overseas Trip</label>
+      <label class="other-specify">
+        <input type="checkbox" id="other_event_type" name="event_type[]" value="Other" />
+        <span>Other:</span>
+        <input type="text" id="event_type_other" name="event_type_other" placeholder="specify" />
+      </label>
+    </div>
+    
+    <label for="start_date" class="required">Event Dates – Start</label>
+    <input type="date" id="start_date" name="start_date" required />
+    
+    <label for="end_date" class="required">Event Dates – End</label>
+    <input type="date" id="end_date" name="end_date" required />
+    
+    <label class="required">Location</label>
+    <div class="radio-group">
+      <label><input type="radio" name="location" value="Domestic" required /> Domestic</label>
+      <label><input type="radio" name="location" value="International" required /> International</label>
+    </div>
+
+    <!-- Section 2: Event Objective -->
+    <div class="section-title">2. Event Objective</div>
+    <label for="event_purpose" class="required">Briefly describe the event's purpose</label>
+    <textarea id="event_purpose" name="event_purpose" rows="4" required></textarea>
+
+    <!-- Section 3: Procurement Requirements -->
+    <div class="section-title">3. Procurement Requirements</div>
+
+    <!-- A. In-House -->
+    <div class="procurement-section">
+      <strong>A. From In-House</strong>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="inhouse_services[]" value="Venue Booking" /> Venue Booking</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Catering" /> Catering</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Audio/Visual Equipment" /> Audio/Visual Equipment</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Printing/Branding" /> Printing/Branding</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Door Gifts / Awards" /> Door Gifts / Awards</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Stage Decoration" /> Stage Decoration</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Table Setup & Decoration" /> Table Setup & Decoration</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Sound System & Lighting" /> Sound System & Lighting</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Entertainment" /> Entertainment</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="MC" /> MC</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Videographer" /> Videographer</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Photographer" /> Photographer</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Stage Backdrop" /> Stage Backdrop</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Photo Booth" /> Photo Booth</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Invitation Card" /> Invitation Card</label>
+        <label><input type="checkbox" name="inhouse_services[]" value="Props" /> Props</label>
+      </div>
+    </div>
+
+    <!-- B. Independent Vendor -->
+    <div class="procurement-section">
+      <strong>B. From Independent Vendor</strong>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="vendor_services[]" value="Venue Booking" /> Venue Booking</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Catering" /> Catering</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Audio/Visual Equipment" /> Audio/Visual Equipment</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Printing/Branding" /> Printing/Branding</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Door Gifts / Awards" /> Door Gifts / Awards</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Stage Decoration" /> Stage Decoration</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Table Setup & Decoration" /> Table Setup & Decoration</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Sound System & Lighting" /> Sound System & Lighting</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Entertainment" /> Entertainment</label>
+        <label><input type="checkbox" name="vendor_services[]" value="MC" /> MC</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Videographer" /> Videographer</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Photographer" /> Photographer</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Stage Backdrop" /> Stage Backdrop</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Photo Booth" /> Photo Booth</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Invitation Card" /> Invitation Card</label>
+        <label><input type="checkbox" name="vendor_services[]" value="Props" /> Props</label>
+      </div>
+    </div>
+
+    <!-- C. Event Planner -->
+    <div class="procurement-section">
+      <strong>C. From Event Planner</strong>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="planner_services[]" value="Venue Booking" /> Venue Booking</label>
+        <label><input type="checkbox" name="planner_services[]" value="Catering" /> Catering</label>
+        <label><input type="checkbox" name="planner_services[]" value="Audio/Visual Equipment" /> Audio/Visual Equipment</label>
+        <label><input type="checkbox" name="planner_services[]" value="Printing/Branding" /> Printing/Branding</label>
+        <label><input type="checkbox" name="planner_services[]" value="Door Gifts / Awards" /> Door Gifts / Awards</label>
+        <label><input type="checkbox" name="planner_services[]" value="Stage Decoration" /> Stage Decoration</label>
+        <label><input type="checkbox" name="planner_services[]" value="Table Setup & Decoration" /> Table Setup & Decoration</label>
+        <label><input type="checkbox" name="planner_services[]" value="Sound System & Lighting" /> Sound System & Lighting</label>
+        <label><input type="checkbox" name="planner_services[]" value="Entertainment" /> Entertainment</label>
+        <label><input type="checkbox" name="planner_services[]" value="MC" /> MC</label>
+        <label><input type="checkbox" name="planner_services[]" value="Videographer" /> Videographer</label>
+        <label><input type="checkbox" name="planner_services[]" value="Photographer" /> Photographer</label>
+        <label><input type="checkbox" name="planner_services[]" value="Stage Backdrop" /> Stage Backdrop</label>
+        <label><input type="checkbox" name="planner_services[]" value="Photo Booth" /> Photo Booth</label>
+        <label><input type="checkbox" name="planner_services[]" value="Invitation Card" /> Invitation Card</label>
+        <label><input type="checkbox" name="planner_services[]" value="Props" /> Props</label>
+      </div>
+    </div>
+
+    <!-- D. Procurement Team -->
+    <div class="procurement-section">
+      <strong>D. From Procurement Team</strong>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="team_services[]" value="Venue Booking" /> Venue Booking</label>
+        <label><input type="checkbox" name="team_services[]" value="Catering" /> Catering</label>
+        <label><input type="checkbox" name="team_services[]" value="Audio/Visual Equipment" /> Audio/Visual Equipment</label>
+        <label><input type="checkbox" name="team_services[]" value="Printing/Branding" /> Printing/Branding</label>
+        <label><input type="checkbox" name="team_services[]" value="Door Gifts / Awards" /> Door Gifts / Awards</label>
+        <label><input type="checkbox" name="team_services[]" value="Stage Decoration" /> Stage Decoration</label>
+        <label><input type="checkbox" name="team_services[]" value="Table Setup & Decoration" /> Table Setup & Decoration</label>
+        <label><input type="checkbox" name="team_services[]" value="Sound System & Lighting" /> Sound System & Lighting</label>
+        <label><input type="checkbox" name="team_services[]" value="Entertainment" /> Entertainment</label>
+        <label><input type="checkbox" name="team_services[]" value="MC" /> MC</label>
+        <label><input type="checkbox" name="team_services[]" value="Videographer" /> Videographer</label>
+        <label><input type="checkbox" name="team_services[]" value="Photographer" /> Photographer</label>
+        <label><input type="checkbox" name="team_services[]" value="Stage Backdrop" /> Stage Backdrop</label>
+        <label><input type="checkbox" name="team_services[]" value="Photo Booth" /> Photo Booth</label>
+        <label><input type="checkbox" name="team_services[]" value="Invitation Card" /> Invitation Card</label>
+        <label><input type="checkbox" name="team_services[]" value="Props" /> Props</label>
+      </div>
+    </div>
+
+    <!-- Section 4: Budget Estimates -->
+    <div class="section-title">4. Budget Estimates</div>
+    <label for="planning_budget">Event Planning & Management Budget</label>
+    <input type="number" id="planning_budget" name="planning_budget" min="0" step="0.01" />
+    
+    <label>Trip Budget (if applicable)</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="trip_budget[]" value="Lodging" /> Lodging</label>
+      <label><input type="checkbox" name="trip_budget[]" value="Travel" /> Travel</label>
+      <label><input type="checkbox" name="trip_budget[]" value="Tour Package" /> Tour Package</label>
+      <label><input type="checkbox" name="trip_budget[]" value="Other" /> Other</label>
+    </div>
+    
+    <label for="budget_range">Estimated Range</label>
+    <input type="text" id="budget_range" name="budget_range" placeholder="e.g., $5,000 - $10,000" />
+
+    <!-- Section 5: Timeline -->
+    <div class="section-title">5. Timeline & Deadlines</div>
+    <label for="quotation_deadline">Vendor Quotation Deadline</label>
+    <input type="date" id="quotation_deadline" name="quotation_deadline" />
+    
+    <label for="selection_deadline">Vendor Selection Deadline</label>
+    <input type="date" id="selection_deadline" name="selection_deadline" />
+    
+    <label for="submission_deadline">Design Submission Deadline</label>
+    <input type="date" id="submission_deadline" name="submission_deadline" />
+    
+    <label for="approval_deadline">Design Approval Deadline</label>
+    <input type="date" id="approval_deadline" name="approval_deadline" />
+
+    <!-- Section 6: Notes -->
+    <div class="section-title">6. Additional Notes</div>
+    <textarea name="additional_notes" rows="4" placeholder="Any special requirements or additional information..."></textarea>
+
+    <!-- Section 7: Contact -->
+    <div class="section-title">7. Point of Contact</div>
+    <label for="contact_name" class="required">Name</label>
+    <input type="text" id="contact_name" name="contact_name" required />
+    
+    <label for="contact_email" class="required">Email</label>
+    <input type="email" id="contact_email" name="contact_email" required />
+    
+    <label for="contact_phone" class="required">Phone</label>
+    <input type="tel" id="contact_phone" name="contact_phone" required />
+
+    <button class="submit-btn" type="submit">Submit Request</button>
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('event-form');
+    const formContainer = document.getElementById('form-container');
+    const successMessage = document.getElementById('success-message');
+    const otherEventCheckbox = document.getElementById('other_event_type');
+    const otherEventText = document.getElementById('event_type_other');
+    
+    // Handle "Other" event type interaction
+    otherEventText.addEventListener('input', function() {
+      if (this.value.trim() !== '') {
+        otherEventCheckbox.checked = true;
+      } else {
+        otherEventCheckbox.checked = false;
+      }
+    });
+    
+    // Form submission handler
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show loading state on submit button
+      const submitBtn = form.querySelector('.submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      
+      // Process checkbox groups to comma-separated strings
+      processCheckboxGroups();
+      
+      // Submit the form via fetch API
+      submitForm()
+        .then(() => {
+          // On success
+          formContainer.classList.add('hidden');
+          successMessage.classList.remove('hidden');
+          // Scroll to top to show success message
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          alert('There was an error submitting your request. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Request';
+        });
+    });
+    
+    function processCheckboxGroups() {
+      const checkboxGroups = [
+        'event_type[]', 
+        'inhouse_services[]',
+        'vendor_services[]',
+        'planner_services[]',
+        'team_services[]',
+        'trip_budget[]'
+      ];
+      
+      checkboxGroups.forEach(group => {
+        const checkboxes = document.querySelectorAll(`input[name="${group}"]:checked`);
+        const values = Array.from(checkboxes).map(cb => {
+          // Special handling for "Other" event type
+          if (cb.id === 'other_event_type' && otherEventText.value.trim() !== '') {
+            return `Other: ${otherEventText.value}`;
+          }
+          return cb.value;
+        });
+        
+        // Remove the original checkbox inputs
+        document.querySelectorAll(`input[name="${group}"]`).forEach(el => {
+          el.disabled = true;
+        });
+        
+        // Create a hidden input with the comma-separated values
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = group.replace('[]', '');
+        hiddenInput.value = values.join(', ');
+        form.appendChild(hiddenInput);
+      });
+    }
+    
+    function submitForm() {
+      return new Promise((resolve, reject) => {
+        const formData = new FormData(form);
+        const action = form.getAttribute('action');
+
+        fetch(action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          resolve(data);
+        })
+        .catch(error => {
+          reject(error);
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>
